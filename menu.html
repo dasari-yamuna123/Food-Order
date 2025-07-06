@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Menu</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<h1>Food Menu</h1>
+
+<div>
+    <p>Pizza Margherita - ₹250 <button onclick="addToCart('Pizza Margherita', 250)">Add to Cart</button></p>
+    <p>Veg Burger - ₹120 <button onclick="addToCart('Veg Burger', 120)">Add to Cart</button></p>
+    <p>Coke - ₹50 <button onclick="addToCart('Coke', 50)">Add to Cart</button></p>
+</div>
+
+<a href="cart.html">Go to Cart</a>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(name, price) {
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(name + " added to cart!");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Checkout</title></head>
+<body>
+<h1>Checkout</h1>
+<form action="submit_order.php" method="POST" onsubmit="prepareOrder()">
+    Name: <input type="text" name="customer_name" required><br>
+    Email: <input type="email" name="customer_email" required><br>
+    <input type="hidden" name="cart_data" id="cartData">
+    <button type="submit">Place Order</button>
+</form>
+
+<script>
+    function prepareOrder() {
+        let cart = localStorage.getItem('cart');
+        document.getElementById('cartData').value = cart;
+        localStorage.removeItem('cart');  // Clear cart after order placed
+    }
+</script>
+</body>
+</html>
